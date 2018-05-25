@@ -8,16 +8,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:rotation="180"
         android:layout_gravity="left|top"
-        >
+        android:orientation="vertical"
+        android:rotation="180">
+
+
+        <TextView
+            android:id="@+id/status_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/screen_background_dark_transparent"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="4dp"
+            android:text="Status"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light" />
+
 
         <TextView
             android:id="@+id/text_a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="8dp"
             android:text="Question"
             android:textAlignment="center"
             android:textSize="24sp" />
@@ -52,11 +64,24 @@
         android:orientation="vertical"
         android:layout_gravity="left|bottom">
 
+
+        <TextView
+            android:id="@+id/status_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/screen_background_dark_transparent"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="4dp"
+            android:text="Status"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light" />
+
+
         <TextView
             android:id="@+id/text_b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="8dp"
             android:text="Question"
             android:textAlignment="center"
             android:textSize="24sp" />

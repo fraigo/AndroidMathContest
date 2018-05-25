@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuizApp</string>
+    <string name="app_name">MathContest</string>
     <string name="istrue">True</string>
     <string name="isfalse">False</string>
 </resources>
