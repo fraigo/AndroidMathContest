@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/screen_background_dark_transparent"
             android:fontFamily="sans-serif-condensed"
-            android:padding="8dp"
+            android:padding="4dp"
             android:text="Status"
             android:textAlignment="center"
             android:textColor="@android:color/background_light" />
@@ -29,7 +29,7 @@
             android:id="@+id/text_a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="8dp"
             android:text="Question"
             android:textAlignment="center"
             android:textSize="24sp" />
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/screen_background_dark_transparent"
             android:fontFamily="sans-serif-condensed"
-            android:padding="8dp"
+            android:padding="4dp"
             android:text="Status"
             android:textAlignment="center"
             android:textColor="@android:color/background_light" />
@@ -81,7 +81,7 @@
             android:id="@+id/text_b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="8dp"
             android:text="Question"
             android:textAlignment="center"
             android:textSize="24sp" />
