@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Question> questions;
     boolean answered;
     int points1, points2, baseNumber;
+    ProgressBar mBar1, mBar2;
 
 
     @Override
@@ -114,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
         mText2 = findViewById(R.id.text_b);
         status1 = findViewById(R.id.status_a);
         status2 = findViewById(R.id.status_b);
+        mBar1 = findViewById(R.id.progressBar_a);
+        mBar2 = findViewById(R.id.progressBar_b);
+
     }
 
     public void setListeners(){
@@ -145,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void nextQuestion(){
         curPosition++;
-        System.out.println("Question "+curPosition+"/"+questions.size());
         if (curPosition == questions.size()){
             System.out.println("Sending Result with data: "+String.format("%d/%d",points1,points2));
             Intent data= new Intent();
@@ -162,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return;
         }
+        mBar1.setProgress(curPosition+1);
+        mBar2.setProgress(curPosition+1);
         current=questions.get(curPosition);
         mText1.setText(current.getText());
         mText2.setText(current.getText());

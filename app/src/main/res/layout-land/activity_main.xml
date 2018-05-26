@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:columnCount="1"
@@ -12,6 +13,15 @@
         android:orientation="vertical"
         android:rotation="180">
 
+        <ProgressBar
+            android:id="@+id/progressBar_a"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="0"
+            android:visibility="gone"
+            tools:visibility="gone" />
 
         <TextView
             android:id="@+id/status_a"
@@ -64,6 +74,13 @@
         android:orientation="vertical"
         android:layout_gravity="left|bottom">
 
+        <ProgressBar
+            android:id="@+id/progressBar_b"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="0" />
 
         <TextView
             android:id="@+id/status_b"

@@ -13,6 +13,14 @@
         android:rotation="180">
 
 
+        <ProgressBar
+            android:id="@+id/progressBar_a"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="0" />
+
         <TextView
             android:id="@+id/status_a"
             android:layout_width="match_parent"
@@ -32,7 +40,7 @@
             android:padding="16dp"
             android:text="Question"
             android:textAlignment="center"
-            android:textSize="24sp" />
+            android:textSize="36sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,6 +73,14 @@
         android:layout_gravity="left|bottom">
 
 
+        <ProgressBar
+            android:id="@+id/progressBar_b"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="0" />
+
         <TextView
             android:id="@+id/status_b"
             android:layout_width="match_parent"
@@ -84,7 +100,7 @@
             android:padding="16dp"
             android:text="Question"
             android:textAlignment="center"
-            android:textSize="24sp" />
+            android:textSize="36sp" />
 
         <LinearLayout
             android:layout_width="match_parent"

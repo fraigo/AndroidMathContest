@@ -43,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void configButton(int id, final int number) {
         final Button mButtonStart = findViewById(id);
-
+        mButtonStart.setText(number+"\n\n");
         mButtonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,8 +59,14 @@ public class SplashActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         System.out.println("Result "+ requestCode+ ":" + resultCode);
-        int points1=data.getIntExtra("POINTS1",0);
-        int points2=data.getIntExtra("POINTS2",0);
-        currentButton.setText(requestCode+"\n\n"+points1+"-"+points2);
+        int points1,points2;
+        if (data!=null){
+            points1=data.getIntExtra("POINTS1",0);
+            points2=data.getIntExtra("POINTS2",0);
+            currentButton.setText(requestCode+"\n\n"+points1+"-"+points2);
+        }else{
+            currentButton.setText(requestCode+"\n\n");
+        }
+
     }
 }
