@@ -1,5 +1,6 @@
 package com.example.francisco.quizapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,14 +22,16 @@ public class MainActivity extends AppCompatActivity {
     Question current;
     ArrayList<Question> questions;
     boolean answered;
-    int points1, points2;
+    int points1, points2, baseNumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        System.out.println("Created");
+        baseNumber = getIntent().getIntExtra("COUNTER", 2);
+        System.out.println("Created "+baseNumber);
 
         questions=new ArrayList<Question>();
         answered = false;
@@ -42,57 +45,11 @@ public class MainActivity extends AppCompatActivity {
             points2 = savedInstanceState.getInt("PLAYER2_POINTS", points2);
         }
 
-        for(int i=2; i<10; i++){
-            int number1=i;
-            int number2=(int)(Math.random()*7)+3;
-            boolean correct=Math.random()*10<5;
-            int result = number1 * number2;
-            if (!correct){
-                result = number1 + number2;
-            }
-            String question = String.format("%d x %d = %d",number1,number2,result);
-            System.out.println("checking position "+(curPosition+1)+" "+(savedInstanceState!=null));
-            if (curPosition-1 == i && savedInstanceState!=null){
+        fillAnswers(savedInstanceState);
 
-                question = savedInstanceState.getString("LAST_QUESTION",question);
-                correct = savedInstanceState.getBoolean("LAST_ANSWER");
-            }
-            questions.add(new Question(question,correct));
-        }
+        findViews();
 
-        mButton1True = findViewById(R.id.button1a);
-        mButton1False = findViewById(R.id.button1b);
-        mButton2True = findViewById(R.id.button2a);
-        mButton2False = findViewById(R.id.button2b);
-        mText1 = findViewById(R.id.text_a);
-        mText2 = findViewById(R.id.text_b);
-        status1 = findViewById(R.id.status_a);
-        status2 = findViewById(R.id.status_b);
-
-        mButton1True.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                answer(1,true);
-            }
-        });
-        mButton1False.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                answer(1,false);
-            }
-        });
-        mButton2True.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                answer(2,true);
-            }
-        });
-        mButton2False.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                answer(2,false);
-            }
-        });
+        setListeners();
 
         nextQuestion();
 
@@ -128,10 +85,82 @@ public class MainActivity extends AppCompatActivity {
         outState.putBoolean("LAST_ANSWER",current.getAnswer());
     }
 
+    public void fillAnswers(Bundle savedInstanceState){
+        for(int i=2; i<11; i++){
+            int number1=baseNumber;
+            int number2=(int)(Math.random()*7)+3;
+            boolean correct=Math.random()*10<5;
+            int result = number1 * number2;
+            if (!correct){
+                result = number1 + number2;
+            }
+            String question = String.format("%d x %d = %d",number1,number2,result);
+            System.out.println("checking position "+(curPosition+1)+" "+(savedInstanceState!=null));
+            if (curPosition-1 == i && savedInstanceState!=null){
+
+                question = savedInstanceState.getString("LAST_QUESTION",question);
+                correct = savedInstanceState.getBoolean("LAST_ANSWER");
+            }
+            questions.add(new Question(question,correct));
+        }
+    }
+
+    public void findViews(){
+        mButton1True = findViewById(R.id.button1a);
+        mButton1False = findViewById(R.id.button1b);
+        mButton2True = findViewById(R.id.button2a);
+        mButton2False = findViewById(R.id.button2b);
+        mText1 = findViewById(R.id.text_a);
+        mText2 = findViewById(R.id.text_b);
+        status1 = findViewById(R.id.status_a);
+        status2 = findViewById(R.id.status_b);
+    }
+
+    public void setListeners(){
+        mButton1True.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                answer(1,true);
+            }
+        });
+        mButton1False.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                answer(1,false);
+            }
+        });
+        mButton2True.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                answer(2,true);
+            }
+        });
+        mButton2False.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                answer(2,false);
+            }
+        });
+    }
+
     public void nextQuestion(){
         curPosition++;
-        if (curPosition ==questions.size()){
-            curPosition = 0;
+        System.out.println("Question "+curPosition+"/"+questions.size());
+        if (curPosition == questions.size()){
+            System.out.println("Sending Result with data: "+String.format("%d/%d",points1,points2));
+            Intent data= new Intent();
+            data.putExtra("POINTS1",points1);
+            data.putExtra("POINTS2",points2);
+
+            if (points1 > points2){
+                setResult(1, data);
+            }else if(points1 > points2){
+                setResult(2, data);
+            }else{
+                setResult(0, data);
+            }
+            finish();
+            return;
         }
         current=questions.get(curPosition);
         mText1.setText(current.getText());
