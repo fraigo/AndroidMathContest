@@ -10,5 +10,7 @@ Inspired in the game "Two player Reactor"
 
 ## Screenshots
 
-[](./playstore/AndroidMathContest-Game.png)
+![](./playstore/AndroidMathContest-Main.png)
+
+![](./playstore/AndroidMathContest-Game.png)
 
