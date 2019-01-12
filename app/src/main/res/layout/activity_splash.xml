@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_margin="4dp"
         android:background="#CCFFCC"
         android:padding="15dp"
@@ -29,9 +29,9 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="2"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/button_3"
@@ -39,9 +39,9 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="3"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/button_4"
@@ -49,9 +49,9 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="4"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
 
 
@@ -69,9 +69,9 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="5"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/button_6"
@@ -79,9 +79,9 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="6"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/button_7"
@@ -89,9 +89,9 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="7"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
     </LinearLayout>
 
@@ -107,9 +107,9 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="8"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/button_9"
@@ -117,9 +117,9 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="9"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/button_11"
@@ -127,10 +127,13 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#EEEE80"
+            android:background="@drawable/ring"
             android:text="11"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
     </LinearLayout>
+
+
+
 
 </LinearLayout>
